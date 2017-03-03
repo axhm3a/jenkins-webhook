@@ -14,9 +14,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.net.URL;
 
-/**
- * Created by axhm3a on 20.02.17.
- */
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class ControllerTest {
@@ -35,8 +32,13 @@ public class ControllerTest {
 
     @Test
     public void getIndex() throws Exception {
-        ResponseEntity<String> responseEntity = template.getForEntity(base.toString(), String.class);
-        Assert.assertThat(responseEntity.getBody(), Matchers.equalTo("hallo"));
+        ResponseEntity<Message> responseEntity = template.getForEntity(base.toString(), Message.class);
+        Assert.assertThat(
+                responseEntity.getBody(),
+                Matchers.samePropertyValuesAs(
+                        new Message("title", "text")
+                )
+        );
 
     }
 }
