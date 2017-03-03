@@ -39,4 +39,11 @@ public class ControllerTest {
         Assert.assertThat(responseEntity.getBody(), Matchers.equalTo("hallo"));
 
     }
+
+    @Test
+    public void getSomeUrl() throws Exception {
+        ResponseEntity<String> responseEntity = template.getForEntity(base.toString().concat("someUrl"), String.class);
+        Assert.assertThat(responseEntity.getBody(), Matchers.equalTo("hallo"));
+
+    }
 }
