@@ -32,8 +32,13 @@ public class ControllerTest {
 
     @Test
     public void getIndex() throws Exception {
-        ResponseEntity<String> responseEntity = template.getForEntity(base.toString(), String.class);
-        Assert.assertThat(responseEntity.getBody(), Matchers.equalTo("hallo"));
+        ResponseEntity<Message> responseEntity = template.getForEntity(base.toString(), Message.class);
+        Assert.assertThat(
+                responseEntity.getBody(),
+                Matchers.samePropertyValuesAs(
+                        new Message("title", "text")
+                )
+        );
 
     }
 }
