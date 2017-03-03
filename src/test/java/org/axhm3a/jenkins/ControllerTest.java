@@ -14,9 +14,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.net.URL;
 
-/**
- * Created by axhm3a on 20.02.17.
- */
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class ControllerTest {
