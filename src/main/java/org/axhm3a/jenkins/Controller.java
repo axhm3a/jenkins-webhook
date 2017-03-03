@@ -12,4 +12,9 @@ public class Controller {
     public String index() {
         return "hallo";
     }
+
+    @RequestMapping("someUrl")
+    public String someUrl() {
+        return "xxx";
+    }
 }
